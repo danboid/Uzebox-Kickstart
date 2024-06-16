@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<gfx-xform version="1">
+	<input file="kick13.png" type="png" tile-width="8" tile-height="8" />
+	<output file="kick13.inc">
+		<tiles var-name="tileset" />
+		<maps pointers-size="8">
+			<map var-name="kick13" left="0" top="0" width="32" height="28" />
+		</maps>
+	</output>
+</gfx-xform>
+
