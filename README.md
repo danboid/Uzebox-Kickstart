@@ -1,8 +1,6 @@
-# Uzebox KickStart
+# Uzebox Kickstart
 
-Pretend your Uzebox is an Amiga 500 that won't boot.
-
-Amaze your friends and family for hours!
+Uzebox-Kickstart is arguably the ultimate fake retro computer emulator available for the Uzebox! You can run Uzebox-Kickstart on your fave open source console to fool your friends and family into thinking you've got an Amiga emulator on your Uzebox that you've just not configured properly yet or that you do actually have an Amiga, it's just very well hidden.
 
 TODO
 
