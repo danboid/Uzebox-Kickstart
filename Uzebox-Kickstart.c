@@ -14,37 +14,24 @@
 #define PCM_CHANNEL 4
 #define PLAY_SPEED 23
 
-int played = 0;
-
-int btnPrev = 0;     // Previous button
-int btnHeld = 0;     // buttons that are held right now
-int btnPressed = 0;  // buttons that were pressed this frame
-int btnReleased = 0; // buttons that were released this frame
+int disk_timer = 0;
 
 const struct PatchStruct patches[] PROGMEM = {
   {2,drive_click_wav,NULL,sizeof(drive_click_wav)-2,sizeof(drive_click_wav)-1},
 };
 
-void processControls(void)
-{
-    btnHeld = ReadJoypad(0); //read in our player one joypad input
-    btnPressed = btnHeld & (btnHeld ^ btnPrev);
-    btnReleased = btnPrev & (btnHeld ^ btnPrev);
-
-	if(btnHeld & BTN_B){
-        TriggerNote(PCM_CHANNEL,PCM_PATCH,PLAY_SPEED,255);
-    }
-    btnPrev = btnHeld;
-}
-
 int main()
 {
-    SetSpritesTileTable(tileset);
-    InitMusicPlayer(patches);
-    SetTileTable(tileset);
-    ClearVram();
-    while(1) {
-      DrawMap2(0,0,kick13);
-      processControls();
+  SetSpritesTileTable(tileset);
+  InitMusicPlayer(patches);
+  SetTileTable(tileset);
+  ClearVram();
+  while(1) {
+    DrawMap2(0,0,kick13);
+    disk_timer++;
+    if(disk_timer >= 300) {
+      TriggerNote(PCM_CHANNEL,PCM_PATCH,PLAY_SPEED,255);
+      disk_timer = 0;
     }
+  }
 }
