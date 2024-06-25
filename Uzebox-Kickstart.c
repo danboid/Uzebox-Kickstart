@@ -10,7 +10,7 @@
 #include "data/kick13.inc"
 
 
-#define PCM_PATCH 1
+#define PCM_PATCH 0
 #define PCM_CHANNEL 4
 #define PLAY_SPEED 23
 
@@ -44,7 +44,6 @@ int main()
     SetTileTable(tileset);
     ClearVram();
     while(1) {
-      WaitVsync(1);
       DrawMap2(0,0,kick13);
       processControls();
     }
