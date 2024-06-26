@@ -1,4 +1,6 @@
-// Uzebox Kickstart
+// Uzebox Amiga Kickstart Simulator
+// by Dan MacDonald
+// 2024
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
@@ -13,6 +15,7 @@
 #define PCM_PATCH 0
 #define PCM_CHANNEL 4
 #define PLAY_SPEED 23
+#define VOLUME 255
 
 int disk_timer = 0;
 
@@ -30,7 +33,7 @@ int main()
     DrawMap2(0,0,kick13);
     disk_timer++;
     if(disk_timer >= 300) {
-      TriggerNote(PCM_CHANNEL,PCM_PATCH,PLAY_SPEED,255);
+      TriggerNote(PCM_CHANNEL,PCM_PATCH,PLAY_SPEED,VOLUME);
       disk_timer = 0;
     }
   }
